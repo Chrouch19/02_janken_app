@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>結婚してくださいシミュレーション</title>
+    <style>
+        .red-text {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+  
+    <header>
+        <h1>デート3回以内に告白しよう</h1>
+    </header>
+
+    <main>
+        <ul>
+            <li id="cafe">カフェでのんびり</li>
+            <li id="park">公園でピクニック</li>
+            <li id="movie">映画館でロマンチックな映画</li>
+        </ul>
+        <div>選んだデートプランは<span id="pc_reaction"></span></div>
+        <div id="judgment">彼氏の反応は...</div>
+        <div id="second_question" style="display: none;">
+            <ul>
+                <li id="shopping">ショッピングデート</li>
+                <li id="restaurant">おしゃれなレストランでディナー</li>
+                <li id="beach">ビーチで海を眺める</li>
+            </ul>
+            <div>次はどこに行こうか？</div>
+            <div>選んだデートプランは<span id="hanou"></span></div>
+            <div id="kansou">彼氏の反応は...</div>
+            <div id="last_question" style="display: none;">
+                <ul>
+                    <li id="kokuhaku">結婚してください</li>
+                    <li id="hurareru">一生一緒にいてください</li>
+                    <li id="shikato">毎日朝ごはんを作ってください</li>
+                </ul>
+                <div>結果は・・・<span id="hanou_last"></span></div>
+                <div id="kansou_last">彼氏の反応は...</div>
+                <video id="marriageVideo" width="500" height="300" controls style="display:none">
+                    <source src="img/504612997265358884.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
+    <script>
+        let happyCount = 0; // "彼氏は喜んでくれました！"の表示回数をカウントする変数
+
+        $("#cafe").on("click", function () {
+            const r = Math.floor(Math.random() * 3); // 0から2の乱数を生成
+            console.log(r, 'ランダムな箱の中身_01');
+            if (r === 0) {
+                console.log("優しい反応_01");
+                $("#pc_reaction").html("");
+                $("#judgment").html('彼氏は喜んでくれました！');
+                happyCount++; // カウントを増やす
+                $("#second_question").show(""); // 2つ目の質問を表示
+            } else if (r === 1) {
+                console.log("少し驚いた反応_01");
+                $("#pc_reaction").html("");
+                $("#judgment").html('彼氏は少し驚いています...');
+            } else if (r === 2) {
+                console.log("素っ気ない反応_01");
+                $("#pc_reaction").html("");
+                $("#judgment").html('彼氏は素っ気ない様子です...');
+            }
+
+            if (happyCount >= 1) {
+                $("#kansou_last").addClass("red-text");
+            }
+        });
+
+        $("#park").on("click", function () {
+            const r = Math.floor(Math.random() * 3); // 0から2のランダムな整数を生成
+            console.log(r, 'ランダムな箱の中身_02');
+            if (r === 0) {
+                console.log("優しい反応_02");
+                $("#pc_reaction").html("");
+                $("#judgment").html('彼氏は喜んでくれました！');
+                happyCount++; // カウントを増やす
+                $("#second_question").show(""); // 2つ目の質問を表示
+            } else if (r === 1) {
+                console.log("少し驚いた反応_02");
+                $("#pc_reaction").html("");
+                $("#judgment").html('彼氏は少し驚いています...');
+            } else if (r === 2) {
+                console.log("素っ気ない反応_02");
+                $("#pc_reaction").html("");
+                $("#judgment").html('彼氏は素っ気ない様子です...');
+            }
+        });
+
+        $("#movie").on("click", function () {
+            const r = Math.floor(Math.random() * 3); // 0から2のランダムな整数を生成
+            console.log(r, 'ランダムな箱の中身_03');
+            if (r === 0) {
+                console.log("優しい反応_03");
+                $("#pc_reaction").html("");
+                $("#judgment").html('彼氏は喜んでくれました！');
+                happyCount++; // カウントを増やす
+                $("#second_question").show(""); // 2つ目の質問を表示
+            } else if (r === 1) {
+                console.log("少し驚いた反応_03");
+                $("#pc_reaction").html("");
+                $("#judgment").html('彼氏は少し驚いています...');
+            } else if (r === 2) {
+                console.log("素っ気ない反応_03");
+                $("#pc_reaction").html("");
+                $("#judgment").html('彼氏は素っ気ない様子です...');
+            }
+        });
+
+        //↓2問目//
+
+        $("#shopping").on("click", function () {
+            const r = Math.floor(Math.random() * 3); // 0から2のランダムな整数を生成
+            console.log(r, '2つめの質問_01');
+            if (r === 0) {
+                console.log("優しい反応_021");
+                $("#hanou").html("");
+                $("#kansou").html('彼氏は喜んでくれました！');
+                $("#last_question").show(""); // 2つ目の質問を表示
+            } else if (r === 1) {
+                console.log("少し驚いた反応_021");
+                $("#hanou").html("");
+                $("#kansou").html('彼氏は少し驚いています...');
+            } else if (r === 2) {
+                console.log("素っ気ない反応_021");
+                $("#hanou").html("");
+                $("#kansou").html('彼氏は素っ気ない様子です...');
+            }
+
+        });
+
+        $("#restaurant").on("click", function () {
+            const r = Math.floor(Math.random() * 3); // 0から2のランダムな整数を生成
+            console.log(r, '2つめの質問_02');
+            if (r === 0) {
+                console.log("優しい反応_022");
+                $("#hanou").html("");
+                $("#kansou").html('彼氏は喜んでくれました！');
+                $("#last_question").show(""); // 2つ目の質問を表示
+         
+            } else if (r === 1) {
+                console.log("少し驚いた反応_022");
+                $("#hanou").html("");
+                $("#kansou").html('彼氏は少し驚いています...');
+            } else if (r === 2) {
+                console.log("素っ気ない反応_022");
+                $("#hanou").html("");
+                $("#kansou").html('彼氏は素っ気ない様子です...');
+            }
+
+        });
+
+        $("#beach").on("click", function () {
+            const r = Math.floor(Math.random() * 3); // 0から2のランダムな整数を生成
+            console.log(r, '2つめの質問_03');
+            if (r === 0) {
+                console.log("優しい反応_023");
+                $("#hanou").html("");
+                $("#kansou").html('彼氏は喜んでくれました！');
+
+                $("#last_question").show(""); // 2つ目の質問を表示
+            } else if (r === 1) {
+                console.log("少し驚いた反応_023");
+                $("#hanou").html("");
+                $("#kansou").html('彼氏は少し驚いています...');
+            } else if (r === 2) {
+                console.log("素っ気ない反応_023");
+                $("#hanou").html("");
+                $("#kansou").html('彼氏は素っ気ない様子です...');
+            }
+        });
+
+        //↓3問目//
+
+        $("#kokuhaku").on("click", function () {
+            const r = Math.floor(Math.random() * 3); // 0から2のランダムな整数を生成
+            console.log(r, '最後の質問_01');
+            if (r === 0) {
+                console.log("結婚_01");
+                $("#hanou_last").html("");
+                $("#kansou_last").html('「結婚しよう！」');
+                $("#marriageVideo").show(); // ビデオを表示
+            } else if (r === 1) {
+                console.log("友達_01");
+                $("#hanou_last").html("");
+                $("#kansou_last").html('「友達でいてください」');
+            } else if (r === 2) {
+                console.log("振られる_01");
+                $("#hanou_last").html("");
+                $("#kansou_last").html('「無理です」');
+            }
+              // 10分の1の確率で画面を真っ暗にする
+                const blackoutChance = Math.floor(Math.random() * 10);
+                if (blackoutChance === 0) {
+                $("body").css("background-color", "black");
+                $("body").css("color", "white");
+             }
+            });
+
+
+        $("#hurareru").on("click", function () {
+            const r = Math.floor(Math.random() * 3); // 0から2のランダムな整数を生成
+            console.log(r, '最後の質問_02');
+            if (r === 0) {
+                console.log("結婚_02");
+                $("#hanou_last").html("");
+                $("#kansou_last").html('「結婚しよう！」');
+            } else if (r === 1) {
+                console.log("友達_02");
+                $("#hanou_last").html("");
+                $("#kansou_last").html('「友達でいてください」');
+            } else if (r === 2) {
+                console.log("振られる_02");
+                $("#hanou_last").html("");
+                $("#kansou_last").html('「無理です」');
+            }
+        });
+
+        $("#shikato").on("click", function () {
+            const r = Math.floor(Math.random() * 3); // 0から2のランダムな整数を生成
+            console.log(r, '最後の質問_01');
+            if (r === 0) {
+                console.log("結婚_03");
+                $("#hanou_last").html("");
+                $("#kansou_last").html('「結婚しよう！」');
+            } else if (r === 1) {
+                console.log("友達_03");
+                $("#hanou_last").html("");
+                $("#kansou_last").html('「友達でいてください」');
+            } else if (r === 2) {
+                console.log("振られる_03");
+                $("#hanou_last").html("");
+                $("#kansou_last").html('「無理です」');
+            }
+        });
+
+        
+
+    </script>
+</body>
+
+</html>
